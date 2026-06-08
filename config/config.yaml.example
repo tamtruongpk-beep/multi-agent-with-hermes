@@ -1,7 +1,7 @@
 model:
   provider: custom
-  base_url: http://127.0.0.1:YOUR_9ROUTER_PORT/v1
-  default: YOUR_MODEL_NAME
+  base_url: http://127.0.0.1:20128/v1
+  default: COO
 providers: {}
 fallback_providers: []
 credential_pool_strategies: {}
@@ -584,8 +584,8 @@ paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
 _config_version: 26
 custom_providers:
-- base_url: http://127.0.0.1:YOUR_9ROUTER_PORT/v1
-  model: YOUR_MODEL_NAME
+- base_url: http://127.0.0.1:20128/v1
+  model: COO
   name: 9router
 group_sessions_per_user: false
 image_gen:
@@ -618,7 +618,7 @@ mcp_servers:
       - list_extensions
       - list_migrations
       - execute_sql
-    url: https://mcp.supabase.com/mcp?project_ref=YOUR_SUPABASE_PROJECT_REF&features=database,docs
+    url: https://mcp.supabase.com/mcp?project_ref=qhzbmlqjnumjcccdeqyj&features=database,docs
   google_workspace:
     enabled: true
     transport: http
