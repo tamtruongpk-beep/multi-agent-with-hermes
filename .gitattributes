@@ -1,0 +1,20 @@
+# Auto-generated files — collapse diffs and exclude from language stats
+web/package-lock.json linguist-generated=true
+
+# Enforce LF for scripts that run inside Linux containers.
+# Without this, Windows checkout converts to CRLF and breaks `exec` in the
+# container entrypoint with "no such file or directory".
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+*.dockerfile text eol=lf
+docker/entrypoint.sh text eol=lf
+
+# === LOCAL MODIFICATIONS — do not auto-merge ===
+# These files are modified locally. On `git pull`, keep local version.
+hermes_cli/gateway_windows.py merge=ours
+hermes_cli/uninstall.py merge=ours
+tools/checkpoint_manager.py merge=ours
+tools/env_probe.py merge=ours
+tools/environments/base.py merge=ours
+tools/environments/docker.py merge=ours
+tools/lazy_deps.py merge=ours
