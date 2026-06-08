@@ -154,9 +154,49 @@ tools/environments/docker.py   merge=ours
 tools/lazy_deps.py             merge=ours
 ```
 
+## Google Workspace MCP - OAuth Setup
+
+**Docs:** [docs/google-workspace-mcp-oauth-guide.md](docs/google-workspace-mcp-oauth-guide.md)
+
+### Quick OAuth Setup (1 lần)
+
+```bash
+# 1. Tạo OAuth Client ở Google Cloud Console
+#    https://console.cloud.google.com/apis/credentials
+
+# 2. Tạo .env trong google_workspace_mcp repo
+notepad %LOCALAPPDATA%\hermes\google_workspace_mcp\.env
+#   GOOGLE_OAUTH_CLIENT_ID=YOUR_CLIENT_ID
+#   GOOGLE_OAUTH_CLIENT_SECRET=YOUR_CLIENT_SECRET
+#   OAUTHLIB_INSECURE_TRANSPORT=1
+
+# 3. Chạy server lần đầu → browser login → tokens tự lưu
+cd %LOCALAPPDATA%\hermes\google_workspace_mcp
+python start_wsmcp.py
+
+# 4. Verify
+curl http://127.0.0.1:8000/
+
+# 5. Copy vào Startup folder (auto-start khi logon)
+copy startup\start_wsmcp.bat "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+```
+
+### OAuth Flow
+
+```
+Credentials (.env)          Tokens (~/.google_workspace_mcp/credentials/)
+┌──────────────────┐        ┌──────────────────────────┐
+│ CLIENT_ID        │        │ access_token (1h)        │
+│ CLIENT_SECRET    │ ──OAuth──▶ refresh_token (dài hạn) │
+└──────────────────┘        └──────────────────────────┘
+                                              │
+                                   Server tự refresh khi hết hạn
+                                   → Không cần login lại
+```
+
 ## Notes
 
-- **Secrets**: `auth.json`, credentials trong `google_workspace_mcp/` KHÔNG đưa lên repo
+- **Secrets**: Credentials trong `google_workspace_mcp/` KHÔNG đưa lên repo (đã có `.gitignore`)
 - **HERMES_HOME**: Mặc định `~/.hermes/` (default profile). Worker profiles dùng `~/.hermes/profiles/<name>/`
 - **Startup**: Chỉ default profile chạy auto qua Startup folder. Worker profiles start manual
 - **Windows**: Không dùng Scheduled Task (cần admin). Dùng Startup folder + VBS watchdog chain
