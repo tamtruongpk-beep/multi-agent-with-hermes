@@ -81,6 +81,16 @@ function Install-GoogleWorkspaceMcp {
     } else {
         Write-Warn "uv not found, skipping MCP pip install"
     }
+
+    # Copy MCP .env (server reads GOOGLE_OAUTH_CLIENT_ID/SECRET from its own .env)
+    $mcpEnvDst = "$McpRepoDir\.env"
+    if (-not (Test-Path $mcpEnvDst)) {
+        $mcpEnvSrc = "$PSScriptRoot\..\google_workspace_mcp\.env.example"
+        if (Test-Path $mcpEnvSrc) {
+            Copy-Item $mcpEnvSrc $mcpEnvDst
+            Write-Success "MCP .env created from template"
+        }
+    }
 }
 
 # ============================================================================
@@ -226,7 +236,8 @@ Write-Host ""
 Write-Success "=== Setup Complete ==="
 Write-Host "Next steps:"
 Write-Host "  1. Edit $HermesHome\.env with your API keys"
-Write-Host "  2. Edit $HermesHome\config.yaml with provider/model settings"
-Write-Host "  3. Run: hermes gateway install"
-Write-Host "  4. Restart or: hermes gateway run"
+Write-Host "  2. Edit $McpRepoDir\.env with Google OAuth CLIENT_ID / CLIENT_SECRET"
+Write-Host "  3. Edit $HermesHome\config.yaml with provider/model settings"
+Write-Host "  4. Run: hermes gateway install"
+Write-Host "  5. Restart or: hermes gateway run"
 Write-Host ""
