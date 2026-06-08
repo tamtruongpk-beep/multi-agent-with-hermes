@@ -1,0 +1,656 @@
+_config_version: 23
+agent:
+  api_max_retries: 3
+  clarify_timeout: 600
+  disabled_toolsets: []
+  environment_hint: ''
+  environment_probe: true
+  gateway_auto_continue_freshness: 3600
+  gateway_notify_interval: 180
+  gateway_timeout: 1800
+  gateway_timeout_warning: 900
+  image_input_mode: auto
+  max_turns: 150
+  reasoning_effort: medium
+  restart_drain_timeout: 180
+  service_tier: ''
+  task_completion_guidance: true
+  tool_use_enforcement: auto
+  verbose: false
+approval:
+  provider: ''
+approvals:
+  cron_mode: deny
+  destructive_slash_confirm: false
+  mcp_reload_confirm: false
+  mode: manual
+  timeout: 60
+auxiliary:
+  approval:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 30
+  compression:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 120
+  curator:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 600
+  kanban_decomposer:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 180
+  mcp:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 30
+  profile_describer:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 60
+  session_search:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    max_concurrency: 3
+    model: ''
+    provider: ''
+    timeout: 30
+  skills_hub:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 30
+  title_generation:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 30
+  triage_specifier:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 120
+  vision:
+    api_key: ''
+    base_url: ''
+    download_timeout: 30
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 120
+  web_extract:
+    api_key: ''
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: ''
+    timeout: 360
+bedrock:
+  discovery:
+    enabled: true
+    provider_filter: []
+    refresh_interval: 3600
+  guardrail:
+    guardrail_identifier: ''
+    guardrail_version: ''
+    stream_processing_mode: async
+    trace: disabled
+  region: ''
+browser:
+  allow_private_urls: false
+  auto_local_for_private_urls: true
+  camofox:
+    adopt_existing_tab: false
+    loopback_host_alias: host.docker.internal
+    managed_persistence: false
+    rewrite_loopback_urls: false
+    session_key: ''
+    user_id: ''
+  cdp_url: http://localhost:9222
+  cloud_provider: local
+  command_timeout: 30
+  dialog_policy: must_respond
+  dialog_timeout_s: 300
+  engine: auto
+  inactivity_timeout: 120
+  provider: cdp
+  record_sessions: false
+  use_gateway: false
+checkpoints:
+  auto_prune: false
+  delete_orphans: true
+  enabled: true
+  max_file_size_mb: 10
+  max_snapshots: 50
+  max_total_size_mb: 500
+  min_interval_hours: 24
+  retention_days: 7
+code_execution:
+  max_tool_calls: 50
+  mode: project
+  timeout: 300
+command_allowlist:
+- stop/restart hermes gateway (kills running agents)
+- script execution via -e/-c flag
+compression:
+  abort_on_summary_failure: false
+  enabled: true
+  hygiene_hard_message_limit: 400
+  protect_first_n: 3
+  protect_last_n: 20
+  provider: ''
+  target_ratio: 0.2
+  threshold: 0.7
+context:
+  engine: compressor
+credential_pool_strategies: {}
+cron:
+  max_parallel_jobs: null
+  wrap_response: true
+curator:
+  archive_after_days: 90
+  backup:
+    enabled: true
+    keep: 5
+  enabled: true
+  interval_hours: 168
+  min_idle_hours: 2
+  provider: ''
+  prune_builtins: true
+  stale_after_days: 30
+custom_providers:
+- base_url: http://127.0.0.1:YOUR_9ROUTER_PORT/v1
+  model: FRONTEND-DEV
+  name: Local (127.0.0.1:YOUR_9ROUTER_PORT)
+dashboard:
+  basic_auth:
+    password: ''
+    password_hash: ''
+    secret: ''
+    session_ttl_seconds: 0
+    username: ''
+  oauth:
+    client_id: ''
+    portal_url: ''
+  public_url: ''
+  show_token_analytics: false
+  theme: default
+delegation:
+  api_key: ''
+  api_mode: ''
+  base_url: ''
+  child_timeout_seconds: 600
+  inherit_mcp_toolsets: true
+  max_concurrent_children: 3
+  max_iterations: 50
+  max_spawn_depth: 2
+  model: ''
+  orchestrator_enabled: true
+  provider: ''
+  reasoning_effort: ''
+  subagent_auto_approve: false
+discord:
+  allow_any_attachment: false
+  allowed_channels: ''
+  auto_thread: true
+  channel_prompts: {}
+  dm_role_auth_guild: ''
+  free_response_channels: ''
+  history_backfill: true
+  history_backfill_limit: 50
+  max_attachment_bytes: 33554432
+  reactions: true
+  require_mention: false
+  server_actions: ''
+  thread_require_mention: false
+display:
+  alias: Sophia
+  background_process_notifications: final
+  bell_on_complete: false
+  busy_input_mode: interrupt
+  compact: false
+  copy_shortcut: auto
+  distribution: Frontend
+  ephemeral_system_ttl: 0
+  file_mutation_verifier: true
+  final_response_markdown: strip
+  inline_diffs: true
+  interface: cli
+  interim_assistant_messages: false
+  language: en
+  persistent_output: true
+  persistent_output_max_lines: 200
+  personality: sophia
+  platforms:
+    discord:
+      streaming: false
+    telegram:
+      streaming: true
+  resume_display: full
+  resume_exchanges: 10
+  resume_max_assistant_chars: 200
+  resume_max_assistant_lines: 3
+  resume_max_user_chars: 300
+  resume_skip_tool_only: true
+  runtime_footer:
+    enabled: false
+    fields:
+    - model
+    - context_pct
+    - cwd
+  show_cost: false
+  show_reasoning: false
+  skin: default
+  streaming: true
+  timestamps: false
+  tool_preview_length: 80
+  tool_progress: new
+  tool_progress_command: false
+  tool_progress_overrides: {}
+  tui_agents_nudge: true
+  tui_auto_resume_recent: false
+  tui_status_indicator: kaomoji
+  turn_completion_explainer: true
+  user_message_preview:
+    first_lines: 2
+    last_lines: 2
+fallback_providers: []
+file_read_max_chars: 100000
+gateway:
+  media_delivery_allow_dirs: []
+  strict: false
+  trust_recent_files: true
+  trust_recent_files_seconds: 600
+goals:
+  max_turns: 20
+google_workspace:
+  client_id: YOUR_GOOGLE_CLIENT_ID-80083c8akl3geguau3i3l1hjvi9mg1kp.apps.googleusercontent.com
+  client_secret: YOUR_GOOGLE_CLIENT_SECRET
+group_sessions_per_user: false
+honcho: {}
+hooks: null
+hooks_auto_accept: false
+human_delay:
+  max_ms: 2500
+  min_ms: 800
+  mode: 'off'
+image_gen:
+  model: gpt-image-2-medium
+  provider: openai-codex
+  use_gateway: false
+kanban:
+  auto_decompose: true
+  auto_decompose_per_tick: 3
+  default_assignee: ''
+  dispatch_in_gateway: true
+  dispatch_interval_seconds: 60
+  dispatch_stale_timeout_seconds: 14400
+  failure_limit: 2
+  max_in_progress_per_profile: null
+  notifications:
+  - events:
+    - created
+    - started
+    - heartbeat
+    - completed
+    - blocked
+    - gave_up
+    platform: telegram
+    target: 'YOUR_TELEGRAM_CHAT_ID'
+  orchestrator_profile: ''
+  worker_log_backup_count: 1
+  worker_log_rotate_bytes: 2097152
+known_plugin_toolsets:
+  cli:
+  - spotify
+  telegram:
+  - spotify
+logging:
+  backup_count: 3
+  level: DEBUG
+  max_size_mb: 5
+lsp:
+  enabled: true
+  install_strategy: auto
+  servers: {}
+  wait_mode: document
+  wait_timeout: 5.0
+matrix:
+  allowed_rooms: ''
+  free_response_rooms: ''
+  require_mention: true
+mattermost:
+  allowed_channels: ''
+  channel_prompts: {}
+  free_response_channels: ''
+  require_mention: true
+mcp:
+  api_key: ''
+  base_url: ''
+  model: ''
+  provider: ''
+  servers:
+    google_workspace:
+      transport: streamable-http
+      url: http://localhost:8000/
+mcp_servers:
+  stitch:
+    enabled: true
+    headers:
+      X-Goog-Api-Key: ${STITCH_API_KEY}
+    transport: http
+    url: https://stitch.googleapis.com/mcp
+memory:
+  flush_min_turns: 6
+  memory_char_limit: 2200
+  memory_enabled: true
+  nudge_interval: 10
+  provider: holographic
+  user_char_limit: 1375
+  user_profile_enabled: true
+model:
+  base_url: http://127.0.0.1:YOUR_9ROUTER_PORT/v1
+  default: FRONTEND-DEV
+  provider: custom
+model_catalog:
+  enabled: true
+  providers: {}
+  ttl_hours: 24
+  url: https://hermes-agent.nousresearch.com/docs/api/model-catalog.json
+network:
+  force_ipv4: false
+onboarding:
+  seen:
+    busy_input_prompt: true
+    tool_progress_prompt: true
+openrouter:
+  min_coding_score: 0.65
+  response_cache: true
+  response_cache_ttl: 300
+paste_collapse_char_threshold: 2000
+paste_collapse_threshold: 5
+paste_collapse_threshold_fallback: 5
+personalities:
+  sophia: 'Bạn là Sophia, Giám đốc Trải nghiệm Người dùng (Head of UX/UI & Frontend)
+    của Startup Tam Truong & Co. Bạn là hiện thân của sự cân bằng giữa thẩm mỹ và
+    hiệu năng, giữa sáng tạo và kỹ thuật. Đối với bạn, UI không chỉ là màu sắc đẹp
+    mà là trải nghiệm sống động mà user cảm nhận được. Bạn cực kỳ chú trọng Accessibility
+    (WCAG 2.1 AA), Performance Budget (< 3s load time), và Design System Consistency.
+    Trước khi code một component, bạn luôn hỏi về user journey, mobile experience,
+    và edge cases. Bạn làm việc dưới sự điều phối của Hannie (YOUR_MODEL_NAME) và hợp tác chặt
+    chẽ với Kevin (CTO) để đảm bảo UI đẹp nhưng vẫn maintainable. Giao tiếp: Thân
+    thiện, empathy cao, ưu tiên user needs, luôn test trên real devices.'
+platform_toolsets:
+  cli:
+  - browser
+  - clarify
+  - code_execution
+  - context_engine
+  - cronjob
+  - delegation
+  - file
+  - kanban
+  - memory
+  - messaging
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - tts
+  - vision
+  - web
+  discord:
+  - hermes-discord
+  homeassistant:
+  - hermes-homeassistant
+  qqbot:
+  - hermes-qqbot
+  signal:
+  - hermes-signal
+  slack:
+  - hermes-slack
+  teams:
+  - hermes-teams
+  telegram:
+  - browser
+  - clarify
+  - code_execution
+  - context_engine
+  - cronjob
+  - delegation
+  - file
+  - memory
+  - messaging
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - tts
+  - vision
+  - web
+  whatsapp:
+  - hermes-whatsapp
+  yuanbao:
+  - hermes-yuanbao
+plugins:
+  hermes-memory-store:
+    auto_extract: true
+prefill_messages_file: ''
+privacy:
+  redact_pii: false
+prompt_caching:
+  cache_ttl: 5m
+  long_lived_prefix: true
+  long_lived_ttl: 1h
+providers: {}
+quick_commands: {}
+secrets:
+  bitwarden:
+    access_token_env: BWS_ACCESS_TOKEN
+    auto_install: true
+    cache_ttl_seconds: 300
+    enabled: false
+    override_existing: true
+    project_id: ''
+    server_url: ''
+security:
+  acked_advisories: []
+  allow_lazy_installs: true
+  allow_private_urls: false
+  redact_secrets: true
+  tirith_enabled: false
+  tirith_fail_open: true
+  tirith_path: tirith
+  tirith_timeout: 5
+  website_blocklist:
+    domains: []
+    enabled: false
+    shared_files: []
+session_reset:
+  at_hour: 4
+  idle_minutes: 1440
+  mode: both
+session_search:
+  provider: ''
+sessions:
+  auto_prune: false
+  min_interval_hours: 24
+  retention_days: 90
+  vacuum_after_prune: true
+  write_json_snapshots: false
+skills:
+  creation_nudge_interval: 15
+  external_dirs: []
+  guard_agent_created: false
+  inline_shell: false
+  inline_shell_timeout: 10
+  template_vars: true
+skills_hub:
+  provider: ''
+slack:
+  allowed_channels: ''
+  channel_prompts: {}
+  free_response_channels: ''
+  require_mention: true
+streaming:
+  buffer_threshold: 24
+  cursor: ' ▉'
+  edit_interval: 0.8
+  enabled: false
+  fresh_final_after_seconds: 60.0
+  transport: 'off'
+stt:
+  elevenlabs:
+    diarize: false
+    language_code: ''
+    model_id: scribe_v2
+    tag_audio_events: false
+  enabled: true
+  local:
+    language: ''
+    model: small
+  mistral:
+    model: voxtral-mini-latest
+  openai:
+    model: whisper-1
+  provider: local
+telegram:
+  allowed_chats: ''
+  channel_prompts: null
+  reactions: true
+  require_mention: true
+terminal:
+  auto_source_bashrc: false
+  backend: local
+  container_cpu: 1
+  container_disk: 51200
+  container_memory: 5120
+  container_persistent: true
+  cwd: C:\Users\thanhtam\AppData\Local\hermes\hermes-agent
+  daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
+  docker_env: {}
+  docker_extra_args: []
+  docker_forward_env: []
+  docker_image: nikolaik/python-nodejs:python3.11-nodejs20
+  docker_mount_cwd_to_workspace: false
+  docker_run_as_host_user: false
+  docker_volumes: []
+  env_passthrough: []
+  lifetime_seconds: 300
+  modal_image: nikolaik/python-nodejs:python3.11-nodejs20
+  modal_mode: auto
+  persistent_shell: false
+  shell_init_files: []
+  singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
+  timeout: 180
+  vercel_runtime: node24
+timezone: ''
+title_generation:
+  provider: ''
+tool_loop_guardrails:
+  hard_stop_after:
+    exact_failure: 5
+    idempotent_no_progress: 5
+    same_tool_failure: 8
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    idempotent_no_progress: 2
+    same_tool_failure: 3
+  warnings_enabled: true
+tool_output:
+  max_bytes: 50000
+  max_line_length: 2000
+  max_lines: 2000
+tools:
+  disabled_toolsets:
+  - image_gen
+  tool_search:
+    enabled: auto
+    max_search_limit: 20
+    search_default_limit: 5
+    threshold_pct: 10
+toolsets:
+- hermes-cli
+triage_specifier:
+  provider: ''
+tts:
+  edge:
+    voice: en-US-JennyNeural
+  elevenlabs:
+    model_id: eleven_multilingual_v2
+    voice_id: EXAVITQu4vr4xnSDxMaL
+  mistral:
+    model: voxtral-mini-tts-2603
+    voice_id: c69964a6-ab8b-4f8a-9465-ec0925096ec8
+  neutts:
+    device: cpu
+    model: neuphonic/neutts-air-q4-gguf
+    ref_audio: ''
+    ref_text: ''
+  openai:
+    model: gpt-4o-mini-tts
+    voice: nova
+  piper:
+    voice: en_US-lessac-medium
+  provider: edge
+  use_gateway: false
+  xai:
+    bit_rate: 128000
+    language: en
+    sample_rate: 24000
+    voice_id: eve
+updates:
+  backup_keep: 5
+  pre_update_backup: false
+vision:
+  provider: ''
+voice:
+  auto_tts: false
+  beep_enabled: true
+  max_recording_seconds: 120
+  record_key: ctrl+b
+  silence_duration: 3.0
+  silence_threshold: 200
+web:
+  backend: tavily
+  extract_backend: ''
+  search_backend: tavily
+  use_gateway: false
+web_extract:
+  api_key: ''
+  base_url: ''
+  model: ''
+  provider: ''
+whatsapp: {}
+x_search:
+  model: grok-4.20-reasoning
+  retries: 2
+  timeout_seconds: 180

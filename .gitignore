@@ -1,0 +1,81 @@
+# === Secrets — NEVER commit ===
+auth.json
+*.token
+*.key
+*.pem
+*.p12
+*.ovpn
+credentials/
+**/credentials/
+**/auth_info_middleware.py
+channel_directory.json
+
+# === Hermes runtime data ===
+gateway.lock
+gateway.pid
+gateway_state.json
+*.state.json
+*.enabled
+watchdog.pid
+gateway-launcher.log
+gateway-watchdog.log
+*.log
+
+# === DB ===
+*.db
+*.db-shm
+*.db-wal
+kanban.db
+
+# === Cache ===
+cache/
+image_cache/
+audio_cache/
+node/
+lsp/
+sandboxes/
+pastes/
+pairing/
+checkpoints/
+models_dev_cache.json
+ollama_cloud_models_cache.json
+provider_models_cache.json
+processes.json
+state-snapshots/
+
+# === MCP tokens ===
+mcp-tokens/
+
+# === Local env / secrets ===
+.env
+.env.local
+.env.production
+
+# === Config with real keys ===
+config.yaml
+
+# === Profile runtime ===
+profiles/*/config.yaml
+profiles/*/gateway.lock
+profiles/*/gateway.pid
+profiles/*/gateway_state.json
+profiles/*/sessions/
+profiles/*/logs/
+profiles/*/cache/
+profiles/*/memory_store.db*
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Build artifacts ===
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+node_modules/
+dist/
+build/

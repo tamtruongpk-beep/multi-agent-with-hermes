@@ -1,0 +1,11 @@
+Kanban ground truth: ~/AppData/Local/hermes/kanban.db. Query trực tiếp sqlite, tránh Dashboard API (stale/unreliable). PATCH status lỗi, dùng SQL UPDATE. ALWAYS load kanban-orchestrator.
+§
+Anh Tâm expects frequent status updates while working — gets frustrated when I go silent mid-task ("Sao nói chuyện cụt ngủn mà cũng không có trạng thái để anh biết là em đang làm?"). Always report progress proactively.
+§
+Anh Tâm has strong design taste — rejected pixel-art AI office repos (pixel-agents, claw-empire, agent-office) as "too indie game / generic admin template". Prefers premium executive/command center aesthetic: Linear, Raycast, Vercel, Stripe. Target direction: navy/graphite sidebar, thin gold accent, command palette, non-chibi agent avatars. WANTS research quality first (full repo check), not shallow conclusions. Codex CLI running on 9Router with model=CODEX-CLI, wire_api=responses — confirmed optimal. 9Router supports many model providers (gc, cx, dg, ag, nqk pools). Wire_api=responses beats chat_completions for Claude reasoning cache efficiency. Current Tailscale IP: 100.73.128.65 (NOT 100.69.121.62 which was old IP).
+§
+Kanban status check = query Hermes kanban.db directly, NOT Dashboard API /api/kanban. Dashboard API on3024 is stale/secondary. Use SQLite on ~/AppData/Local/hermes/kanban.db for operational decisions. Dashboard PATCH API for task status is unreliable (completed_at returns null) — use direct SQLite UPDATE instead.
+§
+Doc-sync on framework upgrade: update PROJECT_OVERVIEW.md (versions), SKILL.md (version block), rename old error refs to -ARCHIVED.md. Keep usePathname() ?? "/" guard always. Test: Playwright 6 pages → update docs → verify clean.
+§
+GWS MCP (8000) auth tamtruong.pk@gmail.com. Token: C:\Users\thanhtam\.google_workspace_mcp\credentials\token.json. Cleanup query: `label:INBOX -category:primary`. Max batch: 50. Reporting style: "Vét nốt", "Tống khứ", "Sạch bóng quân thù". Proactive status expected. Startup: bat in Startup. Sync skill 'google-workspace-mcp'. Pitfall: no 'reason' in MCP tools. Config: .env holds secrets, config.yaml points to port. Status: 100% stable.
