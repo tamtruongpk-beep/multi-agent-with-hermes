@@ -45,8 +45,9 @@ echo OK
 REM === 5. Startup entries ===
 echo [5/5] Startup entries...
 set STARTUP_DIR=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
-copy /Y "%~dp0Hermes_Gateway_watchdog_launcher.vbs" "%STARTUP_DIR%\" 2>nul
-copy /Y "%~dp0start_wsmcp.bat" "%STARTUP_DIR%\" 2>nul
+set SRC_DIR=%~dp0..\startup
+copy /Y "%SRC_DIR%\Hermes_Gateway_watchdog_launcher.vbs" "%STARTUP_DIR%\" 2>nul
+copy /Y "%SRC_DIR%\start_wsmcp.bat" "%STARTUP_DIR%\" 2>nul
 echo OK
 
 echo.
