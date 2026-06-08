@@ -49,22 +49,28 @@ OAUTHLIB_INSECURE_TRANSPORT=1
 MCP_ENABLE_OAUTH21=1
 ```
 
-### Bước 3: Chạy MCP Server (Lần Đầu)
+### Bước 3: Chạy MCP Server
 
 ```bash
-cd C:\Users\<user>\AppData\Local\hermes\google_workspace_mcp
+cd %LOCALAPPDATA%\hermes\google_workspace_mcp
 python start_wsmcp.py
 ```
 
-Server sẽ:
-1. Khởi động và lắng nghe port 8000
-2. Mở **trình duyệt** để login Google
-3. Sau khi login thành công, tokens được **tự động lưu** vào `~/.google_workspace_mcp/credentials/<email>.json`
+Server khởi động background trên port 8000.
 
-### Bước 4: Xác nhận OAuth thành công
+### Bước 4: Trigger OAuth Login
+
+```bash
+hermes mcp login google_workspace
+```
+
+Hermes mở browser → user login Google → tokens tự lưu vào `~/.google_workspace_mcp/credentials/`
+
+### Bước 5: Verify
 
 ```bash
 curl http://127.0.0.1:8000/
+hermes mcp list
 ```
 
 Kết quả:
@@ -72,7 +78,7 @@ Kết quả:
 {"status":"healthy","service":"workspace-mcp","version":"1.21.1"}
 ```
 
-### Bước 5: Auto-start khi logon (Windows)
+### Bước 6: Auto-start khi logon (Windows)
 
 Copy file vào Startup folder:
 

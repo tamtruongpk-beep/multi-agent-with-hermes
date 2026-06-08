@@ -170,14 +170,18 @@ notepad %LOCALAPPDATA%\hermes\google_workspace_mcp\.env
 #   GOOGLE_OAUTH_CLIENT_SECRET=YOUR_CLIENT_SECRET
 #   OAUTHLIB_INSECURE_TRANSPORT=1
 
-# 3. Chạy server lần đầu → browser login → tokens tự lưu
+# 3. Chạy server (background, auto-restart khi logon)
 cd %LOCALAPPDATA%\hermes\google_workspace_mcp
 python start_wsmcp.py
 
-# 4. Verify
-curl http://127.0.0.1:8000/
+# 4. Trigger OAuth login từ Hermes (mở browser để login Google)
+hermes mcp login google_workspace
 
-# 5. Copy vào Startup folder (auto-start khi logon)
+# 5. Verify
+curl http://127.0.0.1:8000/
+hermes mcp list
+
+# 6. Copy vào Startup folder (auto-start khi logon)
 copy startup\start_wsmcp.bat "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
 ```
 
