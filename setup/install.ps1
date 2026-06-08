@@ -224,11 +224,9 @@ Install-ModifiedFiles
 
 Write-Host ""
 Write-Success "=== Setup Complete ==="
-Write-Host ""
 Write-Host "Next steps:"
-Write-Host "  1. Edit $HermesHome\config.yaml with your API keys"
-Write-Host "  2. Edit $env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\start_wsmcp.bat"
-Write-Host "     with Google OAuth credentials"
+Write-Host "  1. Edit $HermesHome\.env with your API keys"
+Write-Host "  2. Edit $HermesHome\config.yaml with provider/model settings"
 Write-Host "  3. Run: hermes gateway install"
 Write-Host "  4. Restart or: hermes gateway run"
 Write-Host ""
